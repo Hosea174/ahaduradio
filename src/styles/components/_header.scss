@@ -1,11 +1,12 @@
 @use '../variables' as *;
 
 header {
+  width: 100%;
   padding-block: 1rem;
   background-color: #F3F3F3;
   z-index: 10;
   transition: all 0.4s linear;
-
+  
   @media screen and (max-width: 425px) {
     top: 1rem;
   }
@@ -153,7 +154,6 @@ header {
         gap: 0;
         border-radius: 0;
         transition: height 0.1s ease-out;
-
 
         .nav-link {
           margin-block: $size-450;

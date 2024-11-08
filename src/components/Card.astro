@@ -1,0 +1,29 @@
+---
+// components
+import { Image } from "astro:assets";
+import ReleaseDate from "./ReleaseDate.astro";
+import Link from "./Link.astro";
+
+interface Props {
+  headline: string;
+  href: string;
+  class?: string;
+  image: ImageMetadata;
+  date: string;
+}
+
+const { headline, href, class: className, image, date } = Astro.props;
+---
+
+<div class:list={["card-wrapper", className]}>
+  <a href={href} class="card-link">
+    <div class="card-image">
+      <Image src={image} alt="hero image" />
+    </div>
+  </a>
+  <div class="card-content">
+    <ReleaseDate date={date} />
+    <h3 class="font-header-3">{headline}</h3>
+    <Link text="ዝርዝር ዜና" icon="open-link" />
+  </div>
+</div>

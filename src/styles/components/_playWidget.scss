@@ -1,0 +1,18 @@
+@use '../variables' as *;
+
+.play-widget {
+  display: flex;
+  gap: .5rem;
+
+  .play-btn {
+    height: fit-content;
+    border-radius: 35px;
+    background: #F9CC09;
+    padding: 5px 11px 5px 5px;
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    border: none;
+  }
+
+}

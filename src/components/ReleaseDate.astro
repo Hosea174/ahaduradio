@@ -1,0 +1,16 @@
+---
+// components
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  date: string;
+  class?: string;
+}
+
+const { date, class: className } = Astro.props;
+---
+
+<div class:list={["date", className]}>
+  <Icon name="calendar" width={15}/>
+  <span class="release-date">{date}</span>
+</div>

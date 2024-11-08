@@ -1,13 +1,17 @@
 ---
 import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
 import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
-import { Image } from "astro:assets";
+import Link from "../components/Link.astro";
+import ReleaseDate from "../components/ReleaseDate.astro";
 // styles
 import "../styles/pages/_index.scss";
 // assets
 import heroImage from "../assets/hero-carousel.png";
-import Link from "../components/Link.astro";
+import newsThumbnail from "../assets/news-thumbnail.png";
+import Card from "../components/Card.astro";
+import PlayWidget from "../components/PlayWidget.astro";
 ---
 
 <Layout title="አሐዱ ሬዲዮ እና ቴሌቪዥን - ኤፍ ኤም 94.3">
@@ -20,10 +24,7 @@ import Link from "../components/Link.astro";
             <div class="news-description">
               <div class="news-meta">
                 <div class="label">ሳምንታዊ ዜናዎች</div>
-                <div class="date-wrapper">
-                  <Icon name="calendar" />
-                  <span class="release-date">02/03/2017</span>
-                </div>
+                <ReleaseDate date="02/03/2017" class="filled" />
               </div>
 
               <h1 class="font-header-1 headline">
@@ -35,11 +36,57 @@ import Link from "../components/Link.astro";
                 ኤክስፖርት ባለስልጣን የሆኑት አቶ አሸናፊ መኮንን የላዳ አሽከርካሪዎች ተገልጋዮችን ለማሳፈር
                 በምንቆምበት ሁሉ አትችሉም እየተባልን ተቸግረናል ሲሉ ለአሀዱ ተናግረዋል፡፡
               </p>
-              <Link text="ዝርዝር ዜና" icon="open-link" class="read-more"/>
+              <Link text="ዝርዝር ዜና" icon="open-link" class="read-more" />
             </div>
             <div class="img-wrapper">
-              <Image src={heroImage} alt="hero image"/>
+              <Image src={heroImage} alt="hero image" />
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="news-section-1">
+      <div class="container wrapper">
+        <div class="section-header">
+          <div class="section-highlight">
+            <h2 class="font-header-2">አሐዱ ሰበር ዜናዎች</h2>
+          </div>
+          <Link text="ሌሎች ዜናዎች" icon="open-link" class="primary" />
+        </div>
+        <div class="breaking-news">
+          <Card
+            href="/"
+            headline="የቡና ኤክስፖርት በ2016 ዓ.ም ከ200 ሚሊዮን ዶላር በላይ ማስገኘቱን የኢትፖጵያ ኢምፖርት ኤክስፖርት ባለስልጣን የሆኑት አቶ አሸናፊ"
+            class="card-lg"
+            image={newsThumbnail}
+            date="02/03/2017"
+          />
+          <Card
+            href="/"
+            headline="የቡና ኤክስፖርት በ2016 ዓ.ም ከ200 ሚሊዮን ዶላር በላይ ማስገኘቱን የኢትፖጵያ ኢምፖርት ኤክስፖርት ባለስልጣን የሆኑት አቶ አሸናፊ"
+            class="card-lg"
+            image={newsThumbnail}
+            date="02/03/2017"
+          />
+          <Card
+            href="/"
+            headline="የቡና ኤክስፖርት በ2016 ዓ.ም ከ200 ሚሊዮን ዶላር በላይ ማስገኘቱን የኢትፖጵያ ኢምፖርት ኤክስፖርት ባለስልጣን የሆኑት አቶ አሸናፊ"
+            class="card-lg"
+            image={newsThumbnail}
+            date="02/03/2017"
+          />
+          <div class="editorial-card">
+            <h3 class="font-header-2">የሳምንቱ ኤዲቶሪያል</h3>
+            <hr>
+            <ReleaseDate date="02/03/2017" />
+            <p class="fw-bold">
+              የቡና ኤክስፖርት በ2016 ዓ.ም ከ200 ሚሊዮን ዶላር በላይ ማስገኘቱን የኢትፖጵያ ኢምፖርት ኤክስፖርት
+              ባለስልጣን የሆኑት አቶ አሸናፊ መኮንን...
+            </p>
+
+            <PlayWidget href="/" text="ለማዳመጥ"/>
+
           </div>
         </div>
       </div>

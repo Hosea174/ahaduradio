@@ -5,6 +5,9 @@
 // Components
 @use 'components/button';
 @use 'components/link';
+@use 'components/card';
+@use 'components/releaseDate';
+@use 'components/playWidget';
 @use 'components/header';
 @use 'components/footer';
 
@@ -45,6 +48,12 @@ body {
   color: #1F1F1F;
   font-size: 16px;
   line-height: 21px;
+}
+
+.section-highlight {
+  padding: 2px 22px 3px 7px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #FFF5CB 0%, #F8F8F8 119.5%);
 }
 
 // Custom scrollbar styles
@@ -90,33 +99,6 @@ body {
   display: none;
 }
 
-// lenis css
-html.lenis,
-html.lenis body {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-.lenis.lenis-smooth iframe {
-  pointer-events: none;
-}
-
-.no-scroll {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-}
 
 // set the color of text selection
 ::selection {

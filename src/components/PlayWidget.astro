@@ -1,0 +1,22 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  text: string;
+  href?: string;
+}
+
+const { text, href } = Astro.props;
+---
+
+<div class="play-widget">
+  <button class="play-btn">
+    <Icon name="play" width={31} height={31}/>
+    {text}
+  </button>
+
+  <a href={href} class="donwload-link">
+    <Icon name="download" width={40} height={40}/>
+  </a>
+</div>
+
