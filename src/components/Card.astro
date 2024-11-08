@@ -3,6 +3,7 @@
 import { Image } from "astro:assets";
 import ReleaseDate from "./ReleaseDate.astro";
 import Link from "./Link.astro";
+import Category from "./Category.astro";
 
 interface Props {
   headline: string;
@@ -22,8 +23,15 @@ const { headline, href, class: className, image, date } = Astro.props;
     </div>
   </a>
   <div class="card-content">
-    <ReleaseDate date={date} />
-    <h3 class="font-header-3">{headline}</h3>
-    <Link text="ዝርዝር ዜና" icon="open-link" />
+    <div class="card-metadata">
+      <div class="about-news">
+        <Category text="ቢዝነስ" class="category--primary" href="/"/>
+        <ReleaseDate date={date}/>
+      </div>
+      <a href={href}>
+        <h3 class="font-header-3">{headline}</h3>
+      </a>
+    </div>
+    <Link text="ዝርዝር ዜና" icon="open-link" class="view-more"/>
   </div>
 </div>

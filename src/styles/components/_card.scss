@@ -13,6 +13,15 @@
     }
   }
 
+  .card-content {
+    .about-news {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: .6rem;
+    }
+  }
+
   &.card-lg {
     max-width: 400px;
     min-width: 250px;
@@ -30,6 +39,31 @@
       h3 {
         margin-block: .3rem 1rem;
       }
+    }
+  }
+
+  &.card-sm {
+    display: flex;
+    gap: .75rem;
+    font-size: 16px;
+
+    .card-image {
+      width: 155px;
+      height: 118px;
+      border-radius: 5px;
+    }
+
+    .card-metadata {
+      display: flex;
+      flex-direction: column-reverse;
+      height: 100%;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.33);
+      padding-bottom: .05rem;
+    }
+
+    .view-more {
+      display: none;
     }
   }
 }

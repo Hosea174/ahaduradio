@@ -4,9 +4,10 @@
   display: flex;
   align-items: center;
   gap: .25rem;
-  padding: 2px 8px;
+  padding: 0px 8px;
   width: fit-content;
-
+  font-size: 14px;
+  height: fit-content;
   &.category--primary {
     border-radius: 5px;
     background: #F9CC09;

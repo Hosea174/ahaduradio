@@ -95,22 +95,22 @@ import logo from "../icons/logo.svg";
     }
   }
 
-  let lastScrollPosition = 0;
+  // let lastScrollPosition = 0;
 
-  document.addEventListener("scroll", function () {
-    const header = document.querySelector("header");
-    const currentScrollPosition = window.scrollY;
+  // document.addEventListener("scroll", function () {
+  //   const header = document.querySelector("header");
+  //   const currentScrollPosition = window.scrollY;
 
-    if (currentScrollPosition > lastScrollPosition || window.scrollY == 0) {
-      // Scrolling down
-      header.classList.remove("header-scroll");
-    } else {
-      // Scrolling up
-      header.classList.add("header-scroll");
-    }
+  //   if (currentScrollPosition > lastScrollPosition || window.scrollY == 0) {
+  //     // Scrolling down
+  //     header.classList.remove("header-scroll");
+  //   } else {
+  //     // Scrolling up
+  //     header.classList.add("header-scroll");
+  //   }
 
-    lastScrollPosition = currentScrollPosition;
-  });
+  //   lastScrollPosition = currentScrollPosition;
+  // });
 
   // active nav link
   document.addEventListener("DOMContentLoaded", function () {
