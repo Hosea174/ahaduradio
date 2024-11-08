@@ -1,102 +1,48 @@
 ---
+import { Icon } from "astro-icon/components";
+import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
-
+// styles
+import "../styles/pages/_index.scss";
 // assets
-import logo from "../assets/ahadu-radio-logo.png";
-import phone from "../assets/phone-icon.svg";
-import mail from "../assets/mail-icon.svg";
+import heroImage from "../assets/hero-carousel.png";
+import Link from "../components/Link.astro";
 ---
 
 <Layout title="አሐዱ ሬዲዮ እና ቴሌቪዥን - ኤፍ ኤም 94.3">
+  <Header />
   <main>
-    <Image src={logo} alt="አሐዱ ሬዲዮ" width={178} />
-    <h1>አሐዱ ሬዲዮ - የኢትዮጵያውያን ድምጽ</h1>
-    <p class="description">ይህ ድህረገጽ በመገንባት ላይ ይገኛል!</p>
-    <div class="btns">
-      <a href="mailto:info@ahaduradio.com" class="cta btn-email">
-        <Image src={mail} alt="አሐዱ ሬዲዮ" />
-        <div></div><p class="btn-text">info@ahaduradio.com</p>
-      </a>
-      <a href="tel:+251940000003" class="cta btn-phone">
-        <Image src={phone} alt="አሐዱ ሬዲዮ" />
-        <div></div><p class="btn-text">094 000 0003</p>
-      </a>
-    </div>
+    <section class="hero-section">
+      <div class="container wrapper">
+        <div class="carousel">
+          <div class="carousel-wrapper">
+            <div class="news-description">
+              <div class="news-meta">
+                <div class="label">ሳምንታዊ ዜናዎች</div>
+                <div class="date-wrapper">
+                  <Icon name="calendar" />
+                  <span class="release-date">02/03/2017</span>
+                </div>
+              </div>
+
+              <h1 class="font-header-1 headline">
+                የቡና ኤክስፖርት በ2016 ዓ.ም ከ200 ሚሊዮን ዶላር በላይ ማስገኘቱን የኢትፖጵያ ኢምፖርት
+                ኤክስፖርት ባለስልጣን የሆኑት አቶ አሸናፊ መኮንን ገለጹ
+              </h1>
+              <p class="sub-headline">
+                የቡና ኤክስፖርት በ2016 ዓ.ም ከ200 ሚሊዮን ዶላር በላይ ማስገኘቱን የኢትፖጵያ ኢምፖርት
+                ኤክስፖርት ባለስልጣን የሆኑት አቶ አሸናፊ መኮንን የላዳ አሽከርካሪዎች ተገልጋዮችን ለማሳፈር
+                በምንቆምበት ሁሉ አትችሉም እየተባልን ተቸግረናል ሲሉ ለአሀዱ ተናግረዋል፡፡
+              </p>
+              <Link text="ዝርዝር ዜና" icon="open-link" class="read-more"/>
+            </div>
+            <div class="img-wrapper">
+              <Image src={heroImage} alt="hero image"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 </Layout>
-
-<style>
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  body {
-    background-image: url("../assets/bg.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    overflow: hidden;
-    font-family: "Noto Sans Ethiopic", sans-serif;
-  }
-  main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    color: #fff;
-    text-align: center;
-  }
-
-  h1 {
-    margin-block: 1rem;
-    font-size: 2rem;
-    font-size: clamp(
-      2rem,
-      1.691326530612245rem + 1.4030612244897958vw,
-      3.375rem
-    );
-    font-weight: 700;
-  }
-
-  .description {
-    font-size: 1rem;
-    font-size: clamp(
-      1rem,
-      1.6887755102040816rem + -0.5739795918367346vw,
-      1.5625rem
-    );
-    font-weight: 600;
-    margin-block-end: 1rem;
-  }
-
-  .btns {
-    margin-top: 1rem;
-    display: flex;
-    gap: 1rem;
-  }
-  @media screen and (max-width: 520px) {
-    .btns {
-      flex-direction: column;
-    }
-  }
-  .cta {
-    display: flex;
-    gap: 0.35rem;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    border-radius: 7px;
-    background-color: #f9cc09;
-    border: none;
-    color: #161515;
-    font-size: 20px;
-    font-weight: 500;
-  }
-
-  .btn-phone {
-    background-color: #f3f2f0;
-  }
-</style>

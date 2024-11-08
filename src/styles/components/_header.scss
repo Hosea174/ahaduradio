@@ -1,0 +1,189 @@
+@use '../variables' as *;
+
+header {
+  padding-block: 1rem;
+  background-color: #F3F3F3;
+  z-index: 10;
+  transition: all 0.4s linear;
+
+  @media screen and (max-width: 425px) {
+    top: 1rem;
+  }
+
+  &.header-scroll {
+    top: 0;
+    position: fixed;
+    z-index: 50;
+    padding-block-start: .5rem;
+    transition: all 0.5s ease;
+  }
+
+
+  .header-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    // .logo-link {
+    //   width: 151px;
+    // }
+    .navigations {
+      display: flex;
+      gap: .85rem;
+
+      .nav-menu .nav-links {
+        display: flex;
+
+        .nav-link {
+          padding: .75rem;
+          position: relative;
+
+          a {
+            transition: opacity 0.3s ease-in-out;
+
+            &:hover {
+              opacity: .75;
+            }
+          }
+
+          &.active {
+            font-weight: $fw-semi-bold;
+          }
+        }
+      }
+    }
+
+    .nav-btns {
+      display: flex;
+      gap: .83rem;
+      align-items: center;
+
+      .socials {
+        display: flex;
+        align-items: center;
+        gap: .32rem;
+        a {
+          display: flex;
+          align-items: center;
+          height: fit-content;
+        }
+      }
+    }
+
+    .nav-toggler {
+      border-radius: 50%;
+      background-color: transparent;
+      cursor: pointer;
+      height: 55px;
+      width: 55px;
+      display: none;
+      border: 1px solid $clr-neutral-900;
+
+      span {
+        margin: auto;
+      }
+
+    }
+
+    .nav-toggler span,
+    .nav-toggler span:before,
+    .nav-toggler span:after {
+      width: 25px;
+      height: 3px;
+      border-radius: 2px;
+      background-color: $clr-neutral-900;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .nav-toggler span:before {
+      content: "";
+      transform: translateY(-7px);
+    }
+
+    .nav-toggler span:after {
+      content: "";
+      transform: translateY(4px);
+    }
+
+    .nav-toggler.toggler-open span {
+      background-color: transparent;
+    }
+
+    .nav-toggler.toggler-open span:before {
+      transform: translateY(0px) rotate(45deg);
+    }
+
+    .nav-toggler.toggler-open span:after {
+      transform: translateY(-3px) rotate(-45deg);
+    }
+
+    @media screen and (max-width: 1044px) {
+      .logo-link {
+        width: 180px;
+      }
+
+      .nav-btns {
+        display: flex;
+        gap: .75rem;
+        align-items: center;
+      }
+
+      .nav-toggler {
+        display: block;
+      }
+
+      .navbar {
+        min-height: 60px;
+      }
+
+      .nav-menu .nav-links {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        flex-direction: column;
+        align-items: end;
+        background: #ebedf1f4;
+        backdrop-filter: blur(21px);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+        height: 0;
+        overflow: hidden;
+        gap: 0;
+        border-radius: 0;
+        transition: height 0.1s ease-out;
+
+
+        .nav-link {
+          margin-block: $size-450;
+          opacity: 0;
+          font-size: 4rem;
+          font-weight: 600;
+          transition: opacity 0.8s ease-in;
+          transition: margin-block 0.5s ease-out;
+        }
+      }
+
+      .nav-links.open {
+        opacity: 1;
+        padding-top: 90px;
+        padding-right: 1.5rem;
+        height: 100vh;
+        overflow: visible;
+      }
+
+      .nav-links.open .nav-link {
+        opacity: 1;
+        margin-block: $size-600;
+        padding-block: 0;
+      }
+    }
+
+    @media screen and (max-width: 540px) {
+      .nav-btns .btn-link {
+        display: none;
+      }
+    }
+  }
+}

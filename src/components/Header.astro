@@ -1,0 +1,138 @@
+---
+// Component imports
+import { Icon } from "astro-icon/components";
+import Button from "../components/Button.astro";
+
+// assets
+import logo from "../icons/logo.svg";
+---
+
+<header>
+  <div class="header-wrapper container">
+    <div class="navigations">
+      <a href="/" aria-label="Home" class="logo-link"
+        ><img src={logo.src} alt="" width="93" /></a
+      >
+      <nav class="nav-menu">
+        <ul role="list" class="nav-links">
+          <li class="nav-link active">
+            <a href="/" aria-label="Home" data-page="home">መነሻ ገጽ</a>
+          </li>
+          <li class="nav-link">
+            <a href="/about" aria-label="About" data-page="about"
+              >የሀገር ውስጥ ዜናዎች</a
+            >
+          </li>
+          <li class="nav-link">
+            <a href="/contact" aria-label="Contact" data-page="contact"
+              >አለም አቀፍ ዜናዎች</a
+            >
+          </li>
+          <li class="nav-link">
+            <a href="/services" aria-label="Services" data-page="services"
+              >የስፖርት ዘገባዎች</a
+            >
+          </li>
+          <li class="nav-link">
+            <a href="/studios" aria-label="Studios" data-page="studios"
+              >አሐዱ ቲቪ</a
+            >
+          </li>
+          <li class="nav-link">
+            <a href="/gallery" aria-label="Gallery" data-page="gallery"
+              >አርዕስቶች</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="nav-btns">
+      <div class="socials">
+        <a href="/">
+          <Icon name="facebook" width={25} height={25} />
+        </a>
+        <a href="/">
+          <Icon name="youtube" width={25} height={25} />
+        </a>
+        <a href="/">
+          <Icon name="instagram" width={25} height={25} />
+        </a>
+        <a href="/">
+          <Icon name="twitter" width={25} height={25} />
+        </a>
+      </div>
+      <Button href="/contact" text="መልዕክት ይጻፉልን" icon="message" />
+      <button class="nav-toggler" aria-label="Hamburger menu"
+        ><span></span></button
+      >
+    </div>
+  </div>
+</header>
+
+<script>
+  const navToggler = document.querySelector(".nav-toggler") as HTMLElement;
+  const navMenu = document.querySelector(".nav-links");
+  const navLinks = document.querySelectorAll(".navbar a");
+  allEventListners();
+
+  function allEventListners() {
+    navToggler.addEventListener("click", togglerClick);
+    navLinks.forEach((elem) => elem.addEventListener("click", navLinkClick));
+  }
+
+  function togglerClick() {
+    navToggler.classList.toggle("toggler-open");
+    navMenu.classList.toggle("open");
+    document.body.classList.toggle(
+      "no-scroll",
+      navMenu.classList.contains("open")
+    );
+  }
+
+  function navLinkClick() {
+    if (navMenu.classList.contains("open")) {
+      navToggler.click();
+    }
+  }
+
+  let lastScrollPosition = 0;
+
+  document.addEventListener("scroll", function () {
+    const header = document.querySelector("header");
+    const currentScrollPosition = window.scrollY;
+
+    if (currentScrollPosition > lastScrollPosition || window.scrollY == 0) {
+      // Scrolling down
+      header.classList.remove("header-scroll");
+    } else {
+      // Scrolling up
+      header.classList.add("header-scroll");
+    }
+
+    lastScrollPosition = currentScrollPosition;
+  });
+
+  // active nav link
+  document.addEventListener("DOMContentLoaded", function () {
+    const pages = window.location.pathname.split("/");
+    const links = document.querySelectorAll(".nav-link");
+    const home = document
+      .querySelector("a[data-page='home']")
+      .closest(".nav-link");
+
+    links.forEach((link) => {
+      const linkPage = link.querySelector("a").getAttribute("data-page");
+      if (pages.includes(linkPage)) {
+        link.classList.add("active");
+        home.classList.remove("active");
+      }
+    });
+    if (
+      ["terms-and-conditions", "privacy-policy", "404"].some((page) =>
+        pages.includes(page)
+      )
+    ) {
+      home.classList.remove("active");
+    }
+  });
+</script>
