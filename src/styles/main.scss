@@ -8,6 +8,7 @@
 @use 'components/card';
 @use 'components/releaseDate';
 @use 'components/playWidget';
+@use 'components/category';
 @use 'components/header';
 @use 'components/footer';
 
@@ -53,6 +54,7 @@ body {
 .section-highlight {
   padding: 2px 22px 3px 7px;
   border-radius: 3px;
+  width: fit-content;
   background: linear-gradient(90deg, #FFF5CB 0%, #F8F8F8 119.5%);
 }
 
